@@ -1,6 +1,6 @@
 import * as Sequelize from "sequelize";
 
-const db = "test";
+const db = "Test";
 const user = "test";
 const pw = "1234";
 
