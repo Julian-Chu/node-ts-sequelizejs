@@ -14,7 +14,7 @@ app.get("/user", async (req: express.Request, res: express.Response) => {
 app.get("/users2", async(req: express.Request, res: express.Response) => {
   console.log();
   const user = await Users2.findOne();
-  res.send(user.name);
+  res.send(user);
 });
 
 export default app;
