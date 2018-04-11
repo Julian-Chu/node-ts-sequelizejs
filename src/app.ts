@@ -21,14 +21,14 @@ app.get("/users2", async(req: express.Request, res: express.Response) => {
   res.send(user);
 });
 
-app.post("/users2", async(req: express.Request, res: express.Response) => {
-  const user = new Users2();
-  console.log("body", req.body);
-  user.name = req.body.name;
-  user.password = req.body.password;
-  user.save();
-  res.status(201).send();
-});
+app.post("/users2", async(req: express.Request, res: express.Response, next) => {
+  try {
+    const user = await Users2.create(req.body);
+    res.status(201).json(user);
+  } catch (e) {
+    next(e);
+  }}
+);
 
 export default app;
 
